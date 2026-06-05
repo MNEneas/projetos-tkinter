@@ -1,17 +1,14 @@
 import tkinter as tk
 
-janela=tk.Tk()
+class Application:
+    def __init__(self, master):
+      self.widget1 = tk.Frame(master)
+      self.widget1.pack()
 
-janela.geometry("300x400")
-janela.title("Minha Janela")
+      self.msg = tk.Label(self.widget1, text="Primeiro widget")
+      self.msg.pack ()
 
-l1 = tk.Label(text="Test", fg="black", bg="white")
-l1.place(x=100, y=50)#tem o grid e pack para adicionar
 
-botao=tk.Button(janela, text="Clique aqui")
-botao.pack()
-
-entrada=tk.Entry(janela)
-entrada.pack()
-
-janela.mainloop() #Para manter a janela aberta até que seja fechada
+root = tk.Tk()
+Application(root)
+root.mainloop()
