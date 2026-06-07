@@ -1,7 +1,11 @@
 import tkinter as tk
+from banco import Banco
+from usuarios import Usuarios
+from home import HomePage
 
 class Application:
     def __init__(self, master):
+        self.master = master
         self.fontepadrao = ("Arial", "10")
 
         self.widget1 = tk.Frame(master)
@@ -79,7 +83,12 @@ class Application:
         senha = self.senha.get()
 
         if nome == "Eneas" and senha == "1234":
-            self.labelaut["text"] = "Você foi autenticado"  
+            self.labelaut["text"] = "Você foi autenticado"
+
+            self.master.destroy()
+            app = tk.Tk()
+            HomePage(app)
+            app.mainloop
         else:
             self.labelaut["text"] = "Você não foi autenticado"    
        
