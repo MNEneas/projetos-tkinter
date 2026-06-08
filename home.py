@@ -41,7 +41,7 @@ class HomePage:
 
         self.label1 = tk.Label(
             self.box1,
-            text='Adicionar usuario e senha'
+            text='Adicione um usuario e senha'
         )
         self.label1.pack()
 
@@ -64,9 +64,9 @@ class HomePage:
         
         self.botao = tk.Button(
             self.box4,
-            text="Click",
+            text="Adicionar",
             font=("Calibri", "10"),
-            width=5,
+            width=7,
             command=lambda: self.user.InserirDados(
             self.usuario.get(),
             self.senha.get()
@@ -88,9 +88,18 @@ class HomePage:
 
         self.botao2 = tk.Button(
             self.box7,
-            text="Click",
+            text="Select",
             font=("Calibri", "10"),
             width=5,
             command=lambda: self.user.SelecionaUser(self.usuario2.get())
             )
         self.botao2.pack()
+
+        self.botao3 = tk.Button(
+            self.box7,
+            text="Delete",
+            font=("Calibri", "10"),
+            width=5,
+            command=lambda: self.user.DeletarUser(self.usuario2.get())
+            )
+        self.botao3.pack()

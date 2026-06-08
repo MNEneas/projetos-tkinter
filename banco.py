@@ -8,7 +8,7 @@ class Banco():
 
     def CriarTabela(self):
 
-        query = 'CREATE TABLE IF NOT EXISTS usuarios(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT, senha TEXT)'
+        query = 'CREATE TABLE IF NOT EXISTS usuarios(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario TEXT UNIQUE, senha TEXT)'
         self.c.execute(query)
 
         self.conexao.commit()
