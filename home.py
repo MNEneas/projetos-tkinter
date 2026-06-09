@@ -39,6 +39,14 @@ class HomePage:
         self.box8["padx"] = 20
         self.box8.pack()
 
+        self.box9 = tk.Frame(master)
+        self.box9["padx"] = 20
+        self.box9.pack()
+
+        self.box10 = tk.Frame(master)
+        self.box10["padx"] = 20
+        self.box10.pack()
+
         self.label1 = tk.Label(
             self.box1,
             text='Adicione um usuario e senha'
@@ -103,3 +111,30 @@ class HomePage:
             command=lambda: self.user.DeletarUser(self.usuario2.get())
             )
         self.botao3.pack()
+
+        self.usuariolabel3 = tk.Label(self.box8, text="Usuario")
+        self.usuariolabel3["font"] = ("Arial", "10", "bold")
+        self.usuariolabel3.pack(side=tk.LEFT)
+
+        self.usuario3 = tk.Entry(self.box8)
+        self.usuario3["width"] = 30
+        self.usuario3.pack(side=tk.LEFT)
+
+        self.senhalabel2 = tk.Label(self.box9, text="Nova Senha")
+        self.senhalabel2["font"] = ("Arial", "10", "bold")
+        self.senhalabel2.pack(side=tk.LEFT)
+
+
+        self.senha3 = tk.Entry(self.box9)
+        self.senha3["width"] = 30
+        self.senha3["show"] = "*"
+        self.senha3.pack(side= tk.LEFT)
+
+        self.botao4 = tk.Button(
+            self.box10,
+            text="Atualizar senha",
+            font=("Calibri", "10"),
+            width=12,
+            command=lambda: self.user.AtualizarSenha(self.usuario3.get(), self.senha3.get())
+        )
+        self.botao4.pack()

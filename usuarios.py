@@ -28,11 +28,11 @@ class Usuarios:
 
             cursor = self.c.cursor()
             cursor.execute('SELECT * FROM usuarios WHERE usuario=?', (nome,))
-            resultado = cursor.fetchall()
+            resultado = cursor.fetchone()
             cursor.close()
 
             if resultado != []:
-                print(f"Deu tudo certo e o resultado = {resultado}")
+                print(f"A senha de {resultado[1]}: {resultado[2]}")
             else:
                 print("Usuario nao existe")
         except Exception as erro:
@@ -52,5 +52,22 @@ class Usuarios:
             else:
                 print("Usuario deletado com sucesso")
             
+        except Exception as error:
+            print(error)
+
+    def AtualizarSenha(self, usuario, novasenha):
+
+        try:
+            cursor = self.c.cursor()
+            cursor.execute('UPDATE usuarios SET senha = ? WHERE usuario = ?', (novasenha, usuario))
+
+            cursor.close()
+            self.c.commit()
+
+            if cursor.rowcount > 0:
+                print(f"Senha do {usuario} atualizada!")
+            else:
+                print("Usuario nao encontrado")
+        
         except Exception as error:
             print(error)
