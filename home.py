@@ -1,77 +1,76 @@
 import tkinter as tk
 from usuarios import Usuarios
-from banco import Banco
 
 class HomePage:
     def __init__ (self, master):
 
         self.user = Usuarios()
 
-        self.box1 = tk.Frame(master)
-        self.box1["pady"] = 10
-        self.box1.pack()
+        self.titulo_inicial = tk.Frame(master)
+        self.titulo_inicial["pady"] = 10
+        self.titulo_inicial.pack()
 
-        self.box2 = tk.Frame(master)
-        self.box2["padx"] = 20
-        self.box2.pack()
+        self.adiciona_usuario = tk.Frame(master)
+        self.adiciona_usuario["padx"] = 20
+        self.adiciona_usuario.pack()
 
-        self.box3 = tk.Frame(master)
-        self.box3["padx"] = 20
-        self.box3.pack()
+        self.adiciona_senha = tk.Frame(master)
+        self.adiciona_senha["padx"] = 20
+        self.adiciona_senha.pack()
 
-        self.box4 = tk.Frame(master)
-        self.box4["padx"] = 20
-        self.box4.pack()
+        self.botao_adicionar = tk.Frame(master)
+        self.botao_adicionar["padx"] = 20
+        self.botao_adicionar.pack()
 
-        self.box5 = tk.Frame(master)
-        self.box5["pady"] = 10
-        self.box5.pack()
+        self.titulo_visualizar = tk.Frame(master)
+        self.titulo_visualizar["pady"] = 10
+        self.titulo_visualizar.pack()
 
-        self.box6 = tk.Frame(master)
-        self.box6["padx"] = 20
-        self.box6.pack()
+        self.visualizar_usuario = tk.Frame(master)
+        self.visualizar_usuario["padx"] = 20
+        self.visualizar_usuario.pack()
 
-        self.box7 = tk.Frame(master)
-        self.box7["padx"] = 20
-        self.box7.pack()
+        self.botao_visualizar_deletar = tk.Frame(master)
+        self.botao_visualizar_deletar["padx"] = 20
+        self.botao_visualizar_deletar.pack()
 
-        self.box8 = tk.Frame(master)
-        self.box8["padx"] = 20
-        self.box8.pack()
+        self.atualiza_usuario = tk.Frame(master)
+        self.atualiza_usuario["padx"] = 20
+        self.atualiza_usuario.pack()
 
-        self.box9 = tk.Frame(master)
-        self.box9["padx"] = 20
-        self.box9.pack()
+        self.atualiza_senha = tk.Frame(master)
+        self.atualiza_senha["padx"] = 20
+        self.atualiza_senha.pack()
 
-        self.box10 = tk.Frame(master)
-        self.box10["padx"] = 20
-        self.box10.pack()
+        self.botao_atualizar = tk.Frame(master)
+        self.botao_atualizar["padx"] = 20
+        self.botao_atualizar.pack()
 
         self.label1 = tk.Label(
-            self.box1,
+            self.titulo_inicial,
             text='Adicione um usuario e senha'
         )
         self.label1.pack()
 
-        self.usuariolabel = tk.Label(self.box2, text = "Usuário")
+        self.usuariolabel = tk.Label(self.adiciona_usuario, text = "Usuário")
         self.usuariolabel["font"] = ("Arial", "10", "bold")
         self.usuariolabel.pack(side=tk.LEFT)
 
-        self.usuario = tk.Entry(self.box2)
+        self.usuario = tk.Entry(self.adiciona_usuario)
         self.usuario["width"] = 30
         self.usuario.pack(side=tk.LEFT)
         
-        self.senhalabel = tk.Label(self.box3, text = "Senha")
+        self.senhalabel = tk.Label(self.adiciona_senha, text = "Senha")
         self.senhalabel["font"] = ("Arial", "10", "bold")
         self.senhalabel.pack(side=tk.LEFT)
 
-        self.senha = tk.Entry(self.box3)
+        self.senha = tk.Entry(self.adiciona_senha)
         self.senha["width"] = 30
         self.senha["show"] = "*"
         self.senha.pack(side=tk.LEFT)
         
         self.botao = tk.Button(
-            self.box4,
+            self.botao_adicionar,
             text="Adicionar",
             font=("Calibri", "10"),
             width=7,
@@ -82,20 +81,20 @@ class HomePage:
         self.botao.pack()
         
         self.label2 = tk.Label(
-            self.box5,
+            self.titulo_visualizar,
             text='visualizar senha do usuario'
         )
 
-        self.usuariolabel2 = tk.Label(self.box6, text = "Usuário")
+        self.usuariolabel2 = tk.Label(self.visualizar_usuario, text = "Usuário")
         self.usuariolabel2["font"] = ("Arial", "10", "bold")
         self.usuariolabel2.pack(side=tk.LEFT)
 
-        self.usuario2 = tk.Entry(self.box6)
+        self.usuario2 = tk.Entry(self.visualizar_usuario)
         self.usuario2["width"] = 30
         self.usuario2.pack(side=tk.LEFT)
 
         self.botao2 = tk.Button(
-            self.box7,
+            self.botao_visualizar_deletar,
             text="Select",
             font=("Calibri", "10"),
             width=5,
@@ -104,7 +103,7 @@ class HomePage:
         self.botao2.pack()
 
         self.botao3 = tk.Button(
-            self.box7,
+            self.botao_visualizar_deletar,
             text="Delete",
             font=("Calibri", "10"),
             width=5,
@@ -112,26 +111,26 @@ class HomePage:
             )
         self.botao3.pack()
 
-        self.usuariolabel3 = tk.Label(self.box8, text="Usuario")
+        self.usuariolabel3 = tk.Label(self.atualiza_usuario, text="Usuario")
         self.usuariolabel3["font"] = ("Arial", "10", "bold")
         self.usuariolabel3.pack(side=tk.LEFT)
 
-        self.usuario3 = tk.Entry(self.box8)
+        self.usuario3 = tk.Entry(self.atualiza_usuario)
         self.usuario3["width"] = 30
         self.usuario3.pack(side=tk.LEFT)
 
-        self.senhalabel2 = tk.Label(self.box9, text="Nova Senha")
+        self.senhalabel2 = tk.Label(self.atualiza_senha, text="Nova Senha")
         self.senhalabel2["font"] = ("Arial", "10", "bold")
         self.senhalabel2.pack(side=tk.LEFT)
 
 
-        self.senha3 = tk.Entry(self.box9)
+        self.senha3 = tk.Entry(self.atualiza_senha)
         self.senha3["width"] = 30
         self.senha3["show"] = "*"
         self.senha3.pack(side= tk.LEFT)
 
         self.botao4 = tk.Button(
-            self.box10,
+            self.botao_atualizar,
             text="Atualizar senha",
             font=("Calibri", "10"),
             width=12,

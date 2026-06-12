@@ -14,13 +14,13 @@ class Usuarios:
 
             cursor = self.c.cursor()
             cursor.execute('INSERT INTO usuarios(usuario, senha) VALUES (?,?)',
-                      (user, sen))
+                (user, sen))
             
             self.c.commit()
             cursor.close()
             print("Usuario cadastrado com sucesso")
-        except Exception:
-            print("Usuario ja adicionado")
+        except Exception as error:
+            print(error)
 
     def SelecionaUser(self, nome):
 
@@ -35,8 +35,8 @@ class Usuarios:
                 print(f"A senha de {resultado[1]}: {resultado[2]}")
             else:
                 print("Usuario nao existe")
-        except Exception as erro:
-            print(erro)
+        except Exception as error:
+            print(error)
 
     def DeletarUser(self, nome):
 

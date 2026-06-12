@@ -1,6 +1,5 @@
 import tkinter as tk
-from banco import Banco
-from usuarios import Usuarios
+import sqlite3
 from home import HomePage
 
 class Application:
@@ -61,14 +60,14 @@ class Application:
         #self.botao.bind("<Button-1>", self.mudar_texto) # bind serve para não so capturar um click mas também qual click foi dado
                                                         # "<Button-1>" é o click esquerdo do mouse "<Button-2>" o do scroll"
                                                         # <Button-3>" o direito
-      
+
         #self.botao["text"] = ("Sair") daria para fazer isso também
         #self.botao["font"] = ("Calibri", "10")
         #self.botao["width"] = 5
         #self.botao["command"] = self.widget1.quit
 
         self.botao.pack() #da para movimentar o botao com side e para onde ir
-           
+
     # def mudar_texto(self):        caso use command e nao bind como: command = self.mudar_texto
     #    if self.msg["text"]=="Mudar":
     #       self.msg["text"]="Mudar novamente"
@@ -82,16 +81,23 @@ class Application:
         nome = self.usuario.get()
         senha = self.senha.get()
 
-        if nome == "Eneas" and senha == "1234":
-            self.labelaut["text"] = "Você foi autenticado"
+        conexao = sqlite3.connect('banco.bd')
+        cursor = conexao.cursor()
+        cursor.execute( """
+        SELECT * FROM usuarios
+        WHERE usuario = ? AND senha = ?
+        """, (nome, senha))
 
-            self.master.destroy()
-            app = tk.Tk()
-            HomePage(app)
-            app.mainloop
+        resultado=cursor.fetchone()
+        conexao.close()
+
+        if resultado is None:
+            self.labelaut["text"] = "Você não foi autenticado"
         else:
-            self.labelaut["text"] = "Você não foi autenticado"    
-       
+            self.master.destroy()
+            app=tk.Tk()
+            HomePage(app)
+            app.mainloop()
 
 app = tk.Tk()
 Application(app)
